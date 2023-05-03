@@ -3,6 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import MusicSearch from './MusicSearch';
 import { SearchBar } from 'react-native-screens';
 import SearchButton from './SearchButton';
+import {useFonts} from 'expo-font'
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
 export default function HomeScreen() {
@@ -18,9 +20,15 @@ export default function HomeScreen() {
       </View>
       
       {/* Titel of App */}
-      <Text style={styles.AppTitle}>Music Search</Text>
+      <View style={styles.MusicSearchTitle}>
+        <Text style={styles.AppTitle}>Music Search</Text>
+        <Icon name="music-note" size={40} color="#000" style={{marginLeft: 8}} />
+      </View>
 
       {/* Search for Musician and Band */}
+      <View style={styles.Musician}>
+
+      </View>
       <MusicSearch Title="Musician" updateState={setMusicianName} />
       <MusicSearch Title="Band" updateState={setBandName} />
 
@@ -40,19 +48,22 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   myName: {
-    fontSize: 12,
+    fontSize: 14,
     color: '#808080'
   },
   myMatrNum: {
     textAlign: 'right',
-    fontSize: 12,
+    fontSize: 14,
     color: '#808080'
   },
   AppTitle: {
-    textAlign: 'center',
-    marginTop: 200,
     fontWeight: 'bold',
     fontSize: 30,
     marginBottom: 20
-  }  
+  },
+  MusicSearchTitle: {
+    flexDirection: 'row',
+    marginTop: 180,
+    marginLeft: 60
+  }
 });

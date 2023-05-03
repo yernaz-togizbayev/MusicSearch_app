@@ -6,15 +6,18 @@ const MusicSearch = (search) => {
     const placeholderText = "Enter a name of " + search.Title;
     return (
         <View>
-            <Text style={styles.SearchTitle}>{search.Title}</Text>
+            <View style={styles.Musician}>
+                <Text style={styles.SearchTitle}>{search.Title}</Text>
 
-            {/* View for Search with icon and TextInput */}
-            <View style={styles.Search}>
-                <Icon name="search" size={15} style={{marginRight: 10}} />
-                <TextInput
-                    placeholder={placeholderText}
-                    onChangeText={i => search.updateState(i)} />
+                {/* View for Search with icon and TextInput */}
+                <View style={styles.Search}>
+                    <Icon name="search" size={15} style={{marginRight: 10}} />
+                    <TextInput
+                        placeholder={placeholderText}
+                        onChangeText={i => search.updateState(i)} />
+                </View>
             </View>
+
         </View>
     );
 }
@@ -22,18 +25,23 @@ const MusicSearch = (search) => {
 export default MusicSearch
 
 const styles = StyleSheet.create({
+    Musician: {
+        flexDirection: 'row'
+    },
     SearchTitle: {
-        marginTop: 20,
+        marginTop: 32,
         marginLeft: 5,
-        fontSize: 16
+        marginRight: 10,
+        fontSize: 17
     },
     Search: {
         flexDirection: 'row',
+        flex: 1,
         borderWidth: 2,
-        borderColor: '#111',
+        borderColor: '#000',
         borderRadius: 12,
         height: 40,
         padding: 10,
-        marginTop: 5
+        marginTop: 25
       }
 })
