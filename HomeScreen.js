@@ -8,28 +8,31 @@ import { useNavigation } from '@react-navigation/native';
 
 export default function HomeScreen() {
   const [musician, setMusicianName] = useState('')
-  const [band, setBandName] = useState('')
   const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
       {/* Views for Name/Surname and Matrikelnummer at the top of application */}
-      <View style={styles.NameAndMatrNum}>
+      <View style={styles.NameAndMatrNumView}>
         <Text style={styles.myName}>Togizbayev Yernaz</Text>
         <Text style={styles.myMatrNum}>01429473</Text>
       </View>
       
       {/* Titel of App */}
-      <View style={styles.MusicSearchTitle}>
+      <View style={styles.MusicSearchTitleView}>
         <Text style={styles.AppTitle}>Music Search</Text>
         <Icon name="music-note" size={40} color="#000" style={{marginLeft: 8}} />
       </View>
 
-      {/* Search for Musician and Band */}
-      <MusicSearch Title="Musician" updateState={setMusicianName} />
-      <MusicSearch Title="Band" updateState={setBandName} />
+      <Text style={styles.AppInformation}>
+        This is my Music Search App. In the Search-Section below
+        you can enter a name of Musician or name of the Band. 
+      </Text>
 
-      <SearchButton  navigation={navigation} musician={musician} band={band}/>
+      {/* Search for Musician */}
+      <MusicSearch updateState={setMusicianName} />
+
+      <SearchButton  navigation={navigation} musician={musician} />
     </View>
   );
 }
@@ -40,7 +43,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     padding: 40
   },
-  NameAndMatrNum: {
+  NameAndMatrNumView: {
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
@@ -53,14 +56,20 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#808080'
   },
-  AppTitle: {
-    fontWeight: 'bold',
-    fontSize: 30,
+  MusicSearchTitleView: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 100,
     marginBottom: 20
   },
-  MusicSearchTitle: {
-    flexDirection: 'row',
-    marginTop: 180,
-    marginLeft: 60
+  AppTitle: {
+    fontWeight: 'bold',
+    fontSize: 32
+  },
+  AppInformation: {
+    fontSize: 17,
+    textAlign: 'center'
+
   }
+  
 });

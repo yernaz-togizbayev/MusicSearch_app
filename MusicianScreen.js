@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image, StyleSheet, ScrollView, ActivityIndicator } from 'react-native';
+import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
 
 const MusicianScreen = ({ route }) => {
-    const { musician, band } = route.params;
+    const { musician } = route.params;
     const [artistMetaData, setArtistMetaData] = useState(null);
     const [releaseGroupsMetaData, setReleaseGroupsMetaData] = useState([]);
 
@@ -45,7 +45,7 @@ const MusicianScreen = ({ route }) => {
 
         fetchMusician();
 
-    }, [musician, band]);
+    }, [musician]);
 
     const extractYear = (dateString) => {
         const date = new Date(dateString);
