@@ -1,24 +1,25 @@
 import React from "react"
 import { Text, View, StyleSheet, TouchableHighlight } from "react-native"
 
-const SearchButton = () => {
-    // const buttonPressed = () => {
-        
-    // };
+const SearchButton = ({ navigation, musician, band }) => {
+    const buttonPressed = () => {
+        navigation.navigate('Musician', {
+            musician: musician,
+            band: band
+        });
+    };
 
     return (
         <View>
             {/* Search Button */}
-            {/* onPress={buttonPressed} */}
-            <TouchableHighlight style={styles.Button} >
+            <TouchableHighlight style={styles.Button} onPress={buttonPressed}>
                     <Text style={styles.SearchButtonText}>Search</Text>
             </TouchableHighlight>
         </View>
     );
-
 };
 
-export default SearchButton
+export default SearchButton;
 
 const styles = StyleSheet.create ({
     Button: {

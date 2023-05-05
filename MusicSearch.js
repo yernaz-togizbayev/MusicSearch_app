@@ -14,7 +14,8 @@ const MusicSearch = (search) => {
                     <Icon name="search" size={15} style={{marginRight: 10}} />
                     <TextInput
                         placeholder={placeholderText}
-                        onChangeText={i => search.updateState(i)} />
+                        onChangeText={i => search.updateState(i)}
+                        style={styles.TextInput} />
                 </View>
             </View>
 
@@ -43,5 +44,11 @@ const styles = StyleSheet.create({
         height: 40,
         padding: 10,
         marginTop: 25
-      }
+      },
+      TextInput: {
+        flex: 1,
+        marginLeft: 5,
+        marginRight: 5,
+        fontSize: 15,
+    },
 })

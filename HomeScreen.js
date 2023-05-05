@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MusicSearch from './MusicSearch';
-import { SearchBar } from 'react-native-screens';
 import SearchButton from './SearchButton';
-import {useFonts} from 'expo-font'
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { useNavigation } from '@react-navigation/native';
 
 
 export default function HomeScreen() {
   const [musician, setMusicianName] = useState('')
   const [band, setBandName] = useState('')
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
@@ -26,13 +26,10 @@ export default function HomeScreen() {
       </View>
 
       {/* Search for Musician and Band */}
-      <View style={styles.Musician}>
-
-      </View>
       <MusicSearch Title="Musician" updateState={setMusicianName} />
       <MusicSearch Title="Band" updateState={setBandName} />
 
-      <SearchButton />
+      <SearchButton  navigation={navigation} musician={musician} band={band}/>
     </View>
   );
 }
