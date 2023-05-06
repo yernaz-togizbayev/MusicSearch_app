@@ -119,11 +119,8 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     wrongMusicianInputMessage: {
-        flex: 2,
-        justifyContent: 'center',
         alignItems: 'center',
-        alignContent: 'center',
-        alignSelf: 'center'
+        marginTop: 30
     }
 
 });

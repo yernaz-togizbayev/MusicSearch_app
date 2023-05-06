@@ -4,6 +4,7 @@ import MusicSearch from './MusicSearch';
 import SearchButton from './SearchButton';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/native';
+import FavoritesButton from './FavoritesButton';
 
 
 export default function HomeScreen() {
@@ -31,6 +32,8 @@ export default function HomeScreen() {
 
       {/* Search for Musician */}
       <MusicSearch updateState={setMusicianName} />
+
+      <FavoritesButton navigation={{navigation}}/>
 
       <SearchButton  navigation={navigation} musician={musician} />
     </View>
@@ -69,7 +72,5 @@ const styles = StyleSheet.create({
   AppInformation: {
     fontSize: 17,
     textAlign: 'center'
-
   }
-  
 });

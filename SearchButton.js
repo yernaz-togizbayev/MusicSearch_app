@@ -2,7 +2,7 @@ import React from "react"
 import { Text, View, StyleSheet, TouchableHighlight } from "react-native"
 
 const SearchButton = ({ navigation, musician }) => {
-    const buttonPressed = () => {
+    const searchButtonPressed = () => {
         navigation.navigate('Musician', {
             musician: musician
         });
@@ -11,7 +11,7 @@ const SearchButton = ({ navigation, musician }) => {
     return (
         <View>
             {/* Search Button */}
-            <TouchableHighlight style={styles.Button} onPress={buttonPressed}>
+            <TouchableHighlight style={styles.SearchButton} onPress={searchButtonPressed}>
                     <Text style={styles.SearchButtonText}>Search</Text>
             </TouchableHighlight>
         </View>
@@ -21,9 +21,9 @@ const SearchButton = ({ navigation, musician }) => {
 export default SearchButton;
 
 const styles = StyleSheet.create ({
-    Button: {
-        marginTop: 50,
-        backgroundColor: '#2196F0',
+    SearchButton: {
+        marginTop: 20,
+        backgroundColor: '#007AFF',
         padding: 10,
         borderRadius: 12
       },

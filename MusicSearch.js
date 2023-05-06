@@ -15,7 +15,6 @@ const MusicSearch = (search) => {
                         style={styles.SearchSectionTextInput} />
                 </View>
             </View>
-
         </View>
     );
 }
