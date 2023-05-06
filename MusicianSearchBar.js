@@ -1,12 +1,17 @@
 import React from 'react'
-import { View, Text, TextInput, StyleSheet } from 'react-native'
+import { View, TextInput, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-const MusicSearch = (search) => {
+/**
+ * Displays an input field for searching by name of musician or band
+ * @param {Object} search An object which holds a function for updating the search state
+ * @returns {JSX.Element} An input field with Icon and TextInput
+ */
+const MusicianSearchBar = (search) => {
     return (
+        // View for search bar with Icon and TextInput
         <View>
-            <View style={styles.Musician}>
-                {/* View for Search with icon and TextInput */}
+            <View style={styles.SearchSectionContainer}>
                 <View style={styles.SearchSection}>
                     <Icon name="search" size={15} style={{marginRight: 10}} />
                     <TextInput
@@ -19,10 +24,11 @@ const MusicSearch = (search) => {
     );
 }
 
-export default MusicSearch
+export default MusicianSearchBar;
 
+// Style for MusicSearch
 const styles = StyleSheet.create({
-    Musician: {
+    SearchSectionContainer: {
         flexDirection: 'row'
     },
     SearchSection: {
@@ -32,13 +38,12 @@ const styles = StyleSheet.create({
         borderColor: '#000',
         borderRadius: 12,
         height: 40,
-        padding: 10,
+        padding: 9,
         marginTop: 40
-      },
-      SearchSectionTextInput: {
+    },
+    SearchSectionTextInput: {
         flex: 1,
         marginLeft: 5,
-        marginRight: 5,
-        fontSize: 15,
-    },
+        fontSize: 16,
+}
 })
