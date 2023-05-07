@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, Image, StyleSheet, ScrollView, Button, ToastAndroid } from 'react-native';
 
 /**
  * Displays albums or single songs of musician or band with album title,
@@ -8,7 +8,9 @@ import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
  * @returns {JSX.Element}  A scrollable View element which represents a musician screen with metadata
  */
 const MusicianScreen = ({ route }) => {
-    const { musician } = route.params; //variable to hold musician parameter of extracted route object
+    const { musician } = route.params;
+    const {favorites, setFavorites} = route.params;
+    const [addSucceed, setAddSucceed] = useState(false);
 
     // variables to hold metadata of artist and release group
     const [artistMetaData, setArtistMetaData] = useState(null);
@@ -65,30 +67,55 @@ const MusicianScreen = ({ route }) => {
         return date.getFullYear();
     };
 
+    // Adds musician to the list of favorites
+    // Displays a message if artist already in the favorites list
+    const addToFavorites = () => {
+        if (!favorites.find((artist) => artist.id === artistMetaData.id)) {
+            setFavorites([...favorites, artistMetaData]);
+            setAddSucceed(true);
+        } else {
+            ToastAndroid.showWithGravityAndOffset (
+                'Artist is already in favorites.',
+                ToastAndroid.LONG,
+                ToastAndroid.CENTER,
+                25,
+                75
+            )
+        }
+      };
+
     // Displays a content of metadata to the screen
     return (
-        <ScrollView>
+        <ScrollView style={styles.container}>
             {artistMetaData ? (
                 <View style={styles.artistInfoView}>
+
+                    <Button
+                        title={addSucceed ? 'Added to Favorites' : 'Add to Favorites'}
+                        onPress={addToFavorites} />
+
                     {releaseGroupsMetaData.map((releaseGroup) => (
                         <View key={releaseGroup.id}>
 
-                            {/* Format of metadata output */}
+                            {/* Titel and cover image */}
                             <Text style={styles.albumTitel}>{releaseGroup.title}</Text>
                             <View style={styles.AlbumCoverView}>
                                 <Image source={{ uri: 'https://coverartarchive.org/release-group/' + releaseGroup.id + '/front' }}
                                         style={styles.AlbumCoverImage}
                                 />
                             </View>
-                            <Text style={artistInfoText}>Name: {artistMetaData.name}</Text>
-                            <Text style={artistInfoText}>Type: {artistMetaData.type === "Person" ? "Singer" : "Group"}</Text>
-                            <Text style={artistInfoText}>Album Type: {releaseGroup['primary-type']}</Text>
-                            <Text style={artistInfoText}>Country: {artistMetaData['area']?.name}</Text>
-                            <Text style={artistInfoText}>Release Year: {extractYear(releaseGroup['first-release-date'])}</Text>
+
+                            {/* Format output of metadata */}
+                            <Text style={artistInfoText}><Text style={{fontWeight: 'bold'}}>Name:</Text> {artistMetaData.name}</Text>
+                            <Text style={artistInfoText}><Text style={{fontWeight: 'bold'}}>Type of musician:</Text> {artistMetaData.type === "Person" ? "Singer" : "Group"}</Text>
+                            <Text style={artistInfoText}><Text style={{fontWeight: 'bold'}}>Album Type:</Text> {releaseGroup['primary-type']}</Text>
+                            <Text style={artistInfoText}><Text style={{fontWeight: 'bold'}}>Country:</Text> {artistMetaData['area']?.name}</Text>
+                            <Text style={artistInfoText}><Text style={{fontWeight: 'bold'}}>Release Year:</Text> {extractYear(releaseGroup['first-release-date'])}</Text>
                             <View style={styles.horizontalLine} />
 
                         </View>
                     ))}
+                    
                 </View>
             ) : (
                 <View style={{marginTop: 330}}>
@@ -109,6 +136,10 @@ export default MusicianScreen;
 
 // Style for MusicianScreen
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        padding: 10
+      },
     AlbumCoverView: {
         flex: 1,
         alignItems: 'center',

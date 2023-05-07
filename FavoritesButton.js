@@ -39,7 +39,7 @@ const styles = StyleSheet.create ({
         marginLeft: 8
 
     },
-        favoritesButtonText: {
+    favoritesButtonText: {
         fontSize: 16,
         textAlign: 'center',
         color: '#007AFF'

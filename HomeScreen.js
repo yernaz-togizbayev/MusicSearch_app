@@ -39,7 +39,7 @@ export default function HomeScreen() {
       <MusicianSearchBar updateState={setMusicianName} />
       
       {/* Button to navigate to FavoritesScreen */}
-      <FavoritesButton navigation={navigation}/>
+      <FavoritesButton navigation={navigation} />
 
       {/* Button to navigate to MusicianScreen after entering input in the search bar */}
       <SearchButton  navigation={navigation} musician={musician} />

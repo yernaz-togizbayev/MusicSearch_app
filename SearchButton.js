@@ -36,7 +36,7 @@ const styles = StyleSheet.create ({
         padding: 10,
         borderRadius: 12
     },
-        SearchButtonText: {
+    SearchButtonText: {
         fontSize: 16,
         textAlign: 'center',
         color: '#ffffff'
