@@ -14,7 +14,7 @@ API-Version:	[API 28]
 Gerät, auf dem getestet wurde:
 [Pixel6]
 
-Nur für React Native: https://expo.dev/artifacts/eas/Cbn8rRVERCQZqg69SwyB.apk
+Nur für React Native: https://expo.dev/artifacts/eas/kWeSPTCKyoTkVb4Ssj9PuR.apk
 
 Externe Libraries und Frameworks:
 [React Navigation, react-native-vector-icons]
