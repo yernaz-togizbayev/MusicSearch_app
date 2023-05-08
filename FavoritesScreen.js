@@ -9,17 +9,16 @@ const FavoritesScreen = ({ route }) => {
     const { favorites } = route.params;
     let countMusicians = 1;
 
-  return (
-    <ScrollView style={styles.FavoritesScreen}>
-        <Text style={styles.FavoritesTitle}>My Favorites</Text>
-        {favorites && favorites.map((artist) => (
-            <View key={artist.id}>
-                <Text style={{fontSize: 20, marginBottom: 12}}>{countMusicians++}. {artist.name}</Text>
-            </View>
-        ))}
-    </ScrollView>
-    
-  );
+    return (
+        <ScrollView style={styles.FavoritesScreen}>
+            <Text style={styles.FavoritesTitle}>My Favorites</Text>
+            {favorites && favorites.map((artist) => (
+                <View key={artist.id}>
+                    <Text style={{ fontSize: 20, marginBottom: 12 }}>{countMusicians++}. {artist.name}</Text>
+                </View>
+            ))}
+        </ScrollView>
+    );
 };
 
 export default FavoritesScreen;

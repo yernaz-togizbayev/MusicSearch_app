@@ -20,7 +20,7 @@ const SearchButton = ({ navigation, musician }) => {
         // SearchButton view to navigate to MusicianScreen
         <View>
             <TouchableHighlight style={styles.SearchButton} onPress={searchButtonPressed}>
-                    <Text style={styles.SearchButtonText}>Search</Text>
+                <Text style={styles.SearchButtonText}>Search</Text>
             </TouchableHighlight>
         </View>
     );
@@ -29,7 +29,7 @@ const SearchButton = ({ navigation, musician }) => {
 export default SearchButton;
 
 // Style for SearchButton
-const styles = StyleSheet.create ({
+const styles = StyleSheet.create({
     SearchButton: {
         marginTop: 20,
         backgroundColor: '#007AFF',

@@ -15,7 +15,7 @@ const Next = createNativeStackNavigator();
 export default function App() {
   const [favorites, setFavorites] = useState([]);
 
-  return(
+  return (
     <NavigationContainer>
       <Next.Navigator>
         {/* Navigates to the HomeScreen */}

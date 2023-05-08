@@ -13,7 +13,7 @@ const MusicianSearchBar = (search) => {
         <View>
             <View style={styles.SearchSectionContainer}>
                 <View style={styles.SearchSection}>
-                    <Icon name="search" size={15} style={{marginRight: 10}} />
+                    <Icon name="search" size={15} style={{ marginRight: 10 }} />
                     <TextInput
                         placeholder={"Enter a name of Musician or Band"}
                         onChangeText={i => search.updateState(i)}
@@ -45,5 +45,5 @@ const styles = StyleSheet.create({
         flex: 1,
         marginLeft: 5,
         fontSize: 16,
-}
+    }
 })

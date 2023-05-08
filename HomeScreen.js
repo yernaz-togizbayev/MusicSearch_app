@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MusicianSearchBar from './MusicianSearchBar';
 import SearchButton from './SearchButton';
@@ -22,27 +22,27 @@ export default function HomeScreen() {
         <Text style={styles.myName}>Togizbayev Yernaz</Text>
         <Text style={styles.myMatrNum}>01429473</Text>
       </View>
-      
+
       {/* Displays Titel of App with Note-Logo */}
       <View style={styles.MusicSearchTitleView}>
         <Text style={styles.AppTitle}>Music Search</Text>
-        <Icon name="music-note" size={40} color="#000" style={{marginLeft: 8}} />
+        <Icon name="music-note" size={40} color="#000" style={{ marginLeft: 8 }} />
       </View>
 
       {/* Displays a short description of app */}
       <Text style={styles.AppInformation}>
         This is my Music Search App. In the Search-Section below
-        you can enter a name of Musician or name of the Band. 
+        you can enter a name of Musician or name of the Band.
       </Text>
 
       {/* Input field for searching musician or band */}
       <MusicianSearchBar updateState={setMusicianName} />
-      
+
       {/* Button to navigate to FavoritesScreen */}
       <FavoritesButton navigation={navigation} />
 
       {/* Button to navigate to MusicianScreen after entering input in the search bar */}
-      <SearchButton  navigation={navigation} musician={musician} />
+      <SearchButton navigation={navigation} musician={musician} />
     </View>
   );
 }

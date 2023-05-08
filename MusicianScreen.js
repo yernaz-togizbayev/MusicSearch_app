@@ -9,7 +9,7 @@ import { View, Text, Image, StyleSheet, ScrollView, Button, ToastAndroid } from 
  */
 const MusicianScreen = ({ route }) => {
     const { musician } = route.params;
-    const {favorites, setFavorites} = route.params;
+    const { favorites, setFavorites } = route.params;
     const [addSucceed, setAddSucceed] = useState(false);
 
     // variables to hold metadata of artist and release group
@@ -17,7 +17,7 @@ const MusicianScreen = ({ route }) => {
     const [releaseGroupsMetaData, setReleaseGroupsMetaData] = useState([]);
 
     const artistInfoText = styles.artistInfoText; // style variable for artist information text
-    
+
     // Fetches metadata of artist and release group from MusicBrainz API and update variables state
     useEffect(() => {
         const fetchMusician = async () => {
@@ -74,7 +74,7 @@ const MusicianScreen = ({ route }) => {
             setFavorites([...favorites, artistMetaData]);
             setAddSucceed(true);
         } else {
-            ToastAndroid.showWithGravityAndOffset (
+            ToastAndroid.showWithGravityAndOffset(
                 'Artist is already in favorites.',
                 ToastAndroid.LONG,
                 ToastAndroid.CENTER,
@@ -82,7 +82,7 @@ const MusicianScreen = ({ route }) => {
                 75
             )
         }
-      };
+    };
 
     // Displays a content of metadata to the screen
     return (
@@ -101,25 +101,25 @@ const MusicianScreen = ({ route }) => {
                             <Text style={styles.albumTitel}>{releaseGroup.title}</Text>
                             <View style={styles.AlbumCoverView}>
                                 <Image source={{ uri: 'https://coverartarchive.org/release-group/' + releaseGroup.id + '/front' }}
-                                        style={styles.AlbumCoverImage}
+                                    style={styles.AlbumCoverImage}
                                 />
                             </View>
 
                             {/* Format output of metadata */}
-                            <Text style={artistInfoText}><Text style={{fontWeight: 'bold'}}>Name:</Text> {artistMetaData.name}</Text>
-                            <Text style={artistInfoText}><Text style={{fontWeight: 'bold'}}>Type of musician:</Text> {artistMetaData.type === "Person" ? "Singer" : "Group"}</Text>
-                            <Text style={artistInfoText}><Text style={{fontWeight: 'bold'}}>Album Type:</Text> {releaseGroup['primary-type']}</Text>
-                            <Text style={artistInfoText}><Text style={{fontWeight: 'bold'}}>Country:</Text> {artistMetaData['area']?.name}</Text>
-                            <Text style={artistInfoText}><Text style={{fontWeight: 'bold'}}>Release Year:</Text> {extractYear(releaseGroup['first-release-date'])}</Text>
+                            <Text style={artistInfoText}><Text style={{ fontWeight: 'bold' }}>Name:</Text> {artistMetaData.name}</Text>
+                            <Text style={artistInfoText}><Text style={{ fontWeight: 'bold' }}>Type of musician:</Text> {artistMetaData.type === "Person" ? "Singer" : "Group"}</Text>
+                            <Text style={artistInfoText}><Text style={{ fontWeight: 'bold' }}>Album Type:</Text> {releaseGroup['primary-type']}</Text>
+                            <Text style={artistInfoText}><Text style={{ fontWeight: 'bold' }}>Country:</Text> {artistMetaData['area']?.name}</Text>
+                            <Text style={artistInfoText}><Text style={{ fontWeight: 'bold' }}>Release Year:</Text> {extractYear(releaseGroup['first-release-date'])}</Text>
                             <View style={styles.horizontalLine} />
 
                         </View>
                     ))}
-                    
+
                 </View>
             ) : (
-                <View style={{marginTop: 330}}>
-                    <Text style={{fontSize: 20, textAlign: 'center'}}>Loading...</Text>
+                <View style={{ marginTop: 330 }}>
+                    <Text style={{ fontSize: 20, textAlign: 'center' }}>Loading...</Text>
                 </View>
                 // <View style={styles.wrongMusicianInputMessage}>
                 //     <Text style={{fontSize: 18, textAlign: 'center'}}> No artist with name
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 10
-      },
+    },
     AlbumCoverView: {
         flex: 1,
         alignItems: 'center',

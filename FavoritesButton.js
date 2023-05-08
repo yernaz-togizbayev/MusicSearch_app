@@ -8,7 +8,7 @@ import Icon from "react-native-vector-icons/MaterialIcons";
  * @returns {JSX.Element} a button which navigates to the FavoritesScreen
  */
 const FavoritesButton = ({ navigation }) => {
-    
+
     // Used to handle onPress event of FavoritesButton which navigates then to the FavoritesScreen
     const FavoritesButtonPressed = () => {
         navigation.navigate('Favorites');
@@ -28,7 +28,7 @@ const FavoritesButton = ({ navigation }) => {
 export default FavoritesButton;
 
 // Style for FavoritesButton
-const styles = StyleSheet.create ({
+const styles = StyleSheet.create({
     FavoritesButtonView: {
         flexDirection: 'row',
         justifyContent: 'center',
