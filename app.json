@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "at.ac.univie.hci.MyA2App_MusicSearch",
-    "slug": "at.ac.univie.hci.MyA2App_MusicSearch",
+    "slug": "MyA2AppMusicSearch",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -15,16 +15,23 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yernazt96.MyA2AppMusicSearch"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.yernazt96.MyA2AppMusicSearch"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b97f288d-245a-41d9-9397-58340a01adfb"
+      }
     }
   }
 }
