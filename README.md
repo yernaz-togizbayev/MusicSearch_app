@@ -1,26 +1,86 @@
-## Readme
+# 🎵 Music Search App – Human-Computer Interface Project
 
-* Name:	[Yernaz Togizbayev]
-* Matr.-Nr.:	[a01429473]
-* Gruppe:	    [01]
+This is a mobile application developed using **React Native** and **Expo**, created for the **Human-Computer Interface (HCI)** course. The app allows users to search for musicians or bands, view their metadata (albums, type, country, release year), and manage a personal list of favorite artists.
 
+---
 
-### Implementierung
+## 📚 Course Context
 
-Framework:	[React Native Android]
+**Course**: Human-Computer Interface  
+**Main Goals**:
+- Designing user-friendly mobile interfaces
+- Navigating between screens
+- Managing UI state with React hooks
+- Making asynchronous API requests (MusicBrainz)
+- Building interactive components (buttons, search, lists)
 
-API-Version:	[API 28]
+---
 
-Gerät, auf dem getestet wurde:
-[Android: Pixel 6, Pixel 6 Pro. iOS: IPhone XR, IPhone 13]
+## 🚀 Features
 
-Nur für React Native: https://expo.dev/artifacts/eas/fySn3n3d2eHMauWKTX78kH.apk
+- 🔎 **Search Functionality**:
+  - Search for a musician or band using the MusicBrainz API
+  - View album data and artist metadata
 
-Externe Libraries und Frameworks:
-[React Navigation, react-native-vector-icons]
+- ⭐ **Favorites**:
+  - Save musicians to a personal favorites list
+  - Access and view your favorites on a separate screen
 
-Dauer der Entwicklung:
-[60 Stunden]
+- 🧭 **Screen Navigation**:
+  - Seamless navigation using React Navigation stack
 
-Weitere Anmerkungen:
-[Je nach Internetverbindung kann es sein, dass die Bilder sich ein bisschen langsam laden, aber nach einige Sekunden erscheinen sie sich. Ich habe die App mit verschieden berühmten Musiker_innen getestet, wie Coldplay, Adele, Justin Timberlake, Selena Gomez, Ariana Grande usw. Außerdem habe ich zusätzlich mit ein paar russischen und koreanischen Musiker_innen getestet. Daher soll es möglich sein, die beliebige Artisten von der ganzen Welt zu suchen(man muss aber die Namen in Musiker's Sprache schreiben: also russische Artist - die Name auf kyrillisch, koreanische Artist - auf koreanisch, usw.). Zusätlich habe ich am Anfang eine "Loading..." Message eingebaut. Und meine "Add to Favorites" Funktionalität ändert den Text auf "Added to Favorites", falls man den Musiker hinzufügt, und falls man später wieder nach den gleichen Musiker sucht, ist der Musiker oder die Musikerin bereits in der Favoritenliste, erscheint ein kleines Pop up message, die besagt, dass der Artist bereits in der Favoritenliste ist.]
+- 📱 **Clean UI**:
+  - Styled with `StyleSheet` and icons via `react-native-vector-icons`
+
+---
+
+## 🗂️ File Overview
+
+| File               | Description |
+|--------------------|-------------|
+| `App.js`           | Main navigation container for the app |
+| `HomeScreen.js`    | Entry screen with search input and action buttons |
+| `MusicianScreen.js`| Fetches and displays musician & album data |
+| `FavoritesScreen.js`| Shows list of user’s favorite musicians |
+| `MusicianSearchBar.js`| Input component for entering musician/band name |
+| `FavoritesButton.js` | Navigates to Favorites screen |
+| `SearchButton.js`  | Triggers navigation to MusicianScreen |
+| `app.json`         | Expo app configuration |
+| `package.json`     | Project dependencies and scripts |
+
+---
+
+## 🖼️ Screenshots
+
+- 🎧 **Home Screen** – Search bar + navigation buttons  
+- 📀 **Musician Screen** – Artist metadata + albums  
+- 🌟 **Favorites Screen** – List of saved musicians  
+
+---
+
+## 📦 Getting Started
+
+Make sure you have [Expo CLI](https://docs.expo.dev/get-started/installation/) installed:
+
+```bash
+npm install -g expo-cli
+```
+
+Then run:
+```bash
+npm install
+expo start
+```
+
+To launch on a mobile device:
+- Use the Expo Go app on iOS/Android
+- Or use an emulator from Android Studio
+
+---
+
+## 🔧 Tech Stack
+- React Native with Expo
+- React Navigation
+- MusicBrainz API
+- Vector icons via react-native-vector-icons
+- Android Toast messages for feedback
